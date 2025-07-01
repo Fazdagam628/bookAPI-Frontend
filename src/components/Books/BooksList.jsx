@@ -42,7 +42,7 @@ export default function BooksList() {
   }
 
   useEffectOnce(() => {
-    loadBooks();
+    loadBooks().then(console.log("loaded"));
   });
 
   const filteredBooks = books.filter((book) =>
