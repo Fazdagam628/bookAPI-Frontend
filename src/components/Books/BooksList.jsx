@@ -1,8 +1,8 @@
 // File: src/components/Books/BooksList.jsx
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { useEffectOnce } from "react-use";
+// import { useEffectOnce } from "react-use";
 import Swal from "sweetalert2";
 import { fetchBooks, deleteBook } from "../utils/api";
 
@@ -41,7 +41,7 @@ export default function BooksList() {
     }
   }
 
-  useEffectOnce(() => {
+  useEffect(() => {
     loadBooks().then(console.log("loaded"));
   });
 
@@ -95,18 +95,18 @@ export default function BooksList() {
                   <div className="btn-group">
                     <Link
                       to={`/books/${book._id}`}
-                      className="btn btn-sm btn-info"
+                      className="btn btn-sm btn-info mx-2 my-1"
                     >
                       Detail
                     </Link>
                     <Link
                       to={`/books/${book._id}/edit`}
-                      className="btn btn-sm btn-warning"
+                      className="btn btn-sm btn-warning mx-2 my-1"
                     >
                       Edit
                     </Link>
                     <button
-                      className="btn btn-sm btn-danger"
+                      className="btn btn-sm btn-danger mx-2 my-1"
                       onClick={() => handleDelete(book._id)}
                     >
                       Hapus
